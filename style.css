@@ -11,6 +11,8 @@ textarea{
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  height: 100%;
+  width: 100%;
 }
 
 .jumbotron {
@@ -44,7 +46,7 @@ textarea{
 
 .past {
   background-color: #d3d3d3;
-  color: white;
+  /* color: white; */
 }
 
 .present {
@@ -68,4 +70,13 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+.plannerRow {
+  height: 50px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 1em;
+  line-height: 1.5;
+  border-radius: 15px;
 }
