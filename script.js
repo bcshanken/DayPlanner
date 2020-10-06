@@ -38,13 +38,15 @@ $(document).ready(function () {
       var hour = 9 + i;
       time = hour + " AM";
     }
-    if(hour>currentHour){
+    if(9+i>currentHour){
         timeClass="future";
-    } else if (hour==currentHour){
+    } else if (9+i==currentHour){
         timeClass="present";
     } else {
-        timeClass="present"
+        timeClass="past"
     }
+    console.log(time);
+    console.log(currentHour);
     var content = '<form class="row">'
     content += '<div class="col-md-1 hour">' + time + '</div>';
     content += '<div class="col-md-10 description p-0"><textarea  class="'+ timeClass +'" id="'+ time +'">'+ hour +'</textarea></div>';
@@ -57,10 +59,11 @@ $(document).ready(function () {
 
   console.log("The current hour is: " + currentHour);
   
-  $(".saveBtn").click(function(){
-      preventDefault();
-      console.log("you clicked a button");
-      localStorage.setItem("",get                  )
-  })
+  $(".saveBtn").on("click", function () {
+    console.log("you clicked a button");
+    var time = $(this).parent().attr("id");
+    var text = $(this).siblings("textarea").val();
+    localStorage.setItem(time, text);
+  });
 
 });
