@@ -22,7 +22,7 @@ $(document).ready(function () {
       currentHour = moment().format("h");
     }
   }
-
+// recall local memory
   function getPlans(){
     for (i = 0; i < 9; i++) {
       time = "";
@@ -55,6 +55,7 @@ $(document).ready(function () {
     time = "";
     timeClass = "";
     hour = "";
+    // building the 12 hour time block text
     if (9 + i > 12) {
       var hour = 9 + i - 12;
       time = hour + " PM";
@@ -62,6 +63,7 @@ $(document).ready(function () {
       var hour = 9 + i;
       time = hour + " AM";
     }
+    // This is were you pick the class
     if(9+i>currentHour){
         timeClass="future";
     } else if (9+i==currentHour){
@@ -69,8 +71,8 @@ $(document).ready(function () {
     } else {
         timeClass="past"
     }
-    // console.log(time);
-    // console.log(currentHour);
+    // 
+    // building rows;
     var content = '<form class="row">'
     content += '<div class="col-md-1 hour">' + time + '</div>';
     content += '<div class="col-md-10 description p-0"><textarea  class="'+ timeClass +'" id="'+ time +'">'+ localStorage.getItem(time) +'</textarea></div>';
@@ -81,7 +83,7 @@ $(document).ready(function () {
 
   // Event Listeners
 
-  // console.log("The current hour is: " + currentHour);
+  // adding events to local memory
   
   $(".saveBtn").on("click", function () {
     event.preventDefault()
